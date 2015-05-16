@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/flatly/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    
+    <title>OpenStack Summit 2015 Demo</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="jumbotron">
+                    <h1>OpenStack Summit!</h1>
+                    <p>Hi folks, welcome to the world of Kubernetes</p>
+                </div>                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <h3>
+                                <span class="glyphicon glyphicon-hdd"></span>
+                                &nbsp;Server&nbsp;
+                                <span class="label label-info">{{ server }}</span>
+                                
+                            </h3>
+                        </li>
+                        <li class="list-group-item">
+                            <h3>
+                                <span class="glyphicon glyphicon-user"></span>
+                                &nbsp;Visitors&nbsp;
+                                <span class="label label-success">{{ visits }}</span>
+                                <!-- <div id="odometer" class="odometer">0</div> -->
+                            </h3>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
