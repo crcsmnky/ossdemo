@@ -1,0 +1,35 @@
+kind: ReplicationController
+apiVersion: v1beta3
+metadata:
+  name: osswebapp
+  labels:
+    name: osswebapp
+spec:
+  replicas: 1
+  selector:
+    name: osswebapp
+  template:
+    metadata:
+      labels:
+        name: osswebapp
+    spec:
+      containers:
+        - name: osswebapp
+          image: crcsmnky/osswebapp:latest
+          env:
+            - name: DB_USER
+              key: DB_USER
+              value: testuser
+            - name: DB_PASS
+              key: DB_PASS
+              value: testpass
+            - name: DB_HOST
+              key: DB_HOST
+              value: galera-master
+            - name: DB_NAME
+              key: DB_NAME
+              value: metrics
+          ports:
+            - name: osswebapp-http-port
+              containerPort: 5000
+              protocol: TCP

@@ -1,0 +1,34 @@
+kind: ReplicationController
+apiVersion: v1beta3
+metadata:
+  name: galera-master
+  labels:
+    name: galera
+    role: master
+spec:
+  replicas: 1
+  selector:
+    name: galera
+    role: master
+  template:
+    metadata:
+      labels:
+        name: galera
+        role: master
+    spec:
+      containers:
+        - name: galera
+          image: crcsmnky/galera:latest
+          ports:
+            - name: galera-mysql-port
+              containerPort: 3306
+              protocol: TCP
+            - name: galera-replication-port
+              containerPort: 4567
+              protocol: TCP
+            - name: galera-ist-port
+              containerPort: 4568
+              protocol: TCP
+            - name: galera-sst-port
+              containerPort: 4444
+              protocol: TCP

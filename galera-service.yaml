@@ -1,0 +1,29 @@
+kind: Service
+apiVersion: v1beta3
+metadata:
+  name: galera-master
+  labels:
+    name: galera
+    role: master
+spec:
+  ports:
+    - port: 3306
+      targetPort: galera-mysql-port
+      protocol: TCP
+      name: galera-mysql-port
+    - port: 4567
+      targetPort: galera-replication-port
+      protocol: TCP
+      name: galera-replication-port
+    - port: 4568
+      targetPort: galera-ist-port
+      protocol: TCP
+      name: galera-ist-port
+    - port: 4444
+      targetPort: galera-sst-port
+      protocol: TCP
+      name: galera-sst-port
+  selector:
+    name: galera
+    role: master
+  createExternalLoadBalancer: true
